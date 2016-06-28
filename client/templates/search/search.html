@@ -1,0 +1,36 @@
+<template name="search">
+  <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
+
+  <div class="container">
+    <h1>Results for '{{getQuery}}'</h1>
+
+
+    <ul class="nav nav-tabs">
+      <li id="ytsearch" role="presentation"><a href="#">Youtube</a></li>
+      <li id="scsearch" role="presentation"><a href="#">SoundCloud</a></li>
+    </ul>
+    {{#each getResults}}
+      <div class="col-sm-8 media">
+        <div class="media-left media-middle">
+          <a href="#">
+            <img class="media-object" src="{{thumbnail}}" alt="" />
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">{{title}}</h4>
+          <div class="">
+            {{description}}
+          </div>
+        </div>
+        <div class="media-right media-middle">
+          {{#if added}}
+          <button id="removeSong" class="btn btn-default"><span class="glyphicon glyphicon-minus"> Remove</span></button>
+          {{else}}
+          <button id="addSong" class="btn btn-primary"><span class="glyphicon glyphicon-plus"> Add</span></button>
+          {{/if}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+</template>
